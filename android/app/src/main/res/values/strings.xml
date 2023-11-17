@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Point Thera</string>
+    <string name="title_activity_main">Point Thera</string>
+    <string name="package_name">thera.point</string>
+    <string name="custom_url_scheme">thera.point</string>
+</resources>

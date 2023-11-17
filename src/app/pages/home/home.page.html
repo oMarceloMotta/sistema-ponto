@@ -1,0 +1,68 @@
+<ion-content [fullscreen]="true">
+  <div class="header">
+    <img src="../../../assets/icon/thera_solutions_logo.png" width="100" height="50" />
+    <ion-title size="small">Olá, {{firstName}}!</ion-title>
+    <ion-icon (click)="logout()" size="large" class="ion-padding-end" color="primary" name="close-circle-outline" />
+  </div>
+  <div id="container">
+    <div>
+      <div>
+        <h2>{{ dateNow | date: 'dd/MM/yyyy' }}</h2>
+        <h2>{{ dateNow | date: 'HH:mm:ss' }}</h2>
+      </div>
+      <div>
+        <h3>Tempo {{ timeWorkNow }}</h3>
+      </div>
+    </div>
+    <ion-list lines="none" class="btns">
+      <ion-item>
+        <ion-button size="large" [color]="myTimeSheetNow.start
+        && myTimeSheetNow.startLunch
+        && myTimeSheetNow.endLunch
+          && myTimeSheetNow.end
+         ?  'primary': 'secondary'" (click)="postTimeSheet('CHEGUEI')" type="button">CHEGUEI</ion-button>
+        <ion-button size="large" [color]="myTimeSheetNow.start && !myTimeSheetNow.startLunch ?  'primary': 'secondary'"
+          (click)="updateTimeSheet('FUI ALMOCAR')" type="button">FUI ALMOÇAR</ion-button>
+      </ion-item>
+      <ion-item>
+        <ion-button size="large"
+          [color]="myTimeSheetNow.startLunch && !myTimeSheetNow.endLunch ?  'primary': 'secondary'"
+          (click)="updateTimeSheet('VOLTEI')" type="button">VOLTEI</ion-button>
+        <ion-button size="large" [color]="myTimeSheetNow.endLunch && !myTimeSheetNow.end ?  'primary': 'secondary'"
+          (click)="updateTimeSheet('FUI')" type="button">FUI</ion-button>
+      </ion-item>
+    </ion-list>
+    <ion-list class="registros" lines="none" *ngFor="let timeSheet of myListTimeSheet.items">
+      <ion-item>
+        <ion-label>
+          <h3>DATA</h3>
+          <p>{{ timeSheet.start | date: 'dd/MM/yyyy' }}</p>
+        </ion-label>
+        <ion-label>
+          <h3>HORA INÍCIO</h3>
+          <p>{{ timeSheet.start | date: 'HH:mm:ss' }}</p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <h3>ALMOÇO INÍCIO</h3>
+          <p>{{ timeSheet.startLunch | date: 'HH:mm:ss' }}</p>
+        </ion-label>
+        <ion-label>
+          <h3>ALMOÇO FIM</h3>
+          <p>{{ timeSheet.endLunch | date: 'HH:mm:ss' }}</p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <h3>HORA FIM</h3>
+          <p>{{ timeSheet.end | date: 'HH:mm:ss' }}</p>
+        </ion-label>
+        <ion-label>
+          <h3>TEMPO</h3>
+          <p>{{ timeSheet.time }}</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>

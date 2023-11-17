@@ -1,0 +1,28 @@
+<ion-content [fullscreen]="true">
+  <form [formGroup]="loginForm" (ngSubmit)="login()">
+    <ion-list lines="none">
+      <ion-img src="../../../assets/icon/thera_solutions_logo.png" width="188" height="100" />
+      <ion-item class="ion-item">
+        <ion-icon class="ion-padding-end" color="primary" name="person-circle-outline"></ion-icon>
+        <ion-input formControlName="userID" shape="round" color="light" placeholder="Usuário" type="text" />
+      </ion-item>
+      <div *ngIf="loginForm.get('userID')?.hasError('required') && loginForm.get('userID')?.touched">
+        Usuario é obrigatório.
+      </div>
+      <div *ngIf="loginForm.get('userID')?.hasError('email') && loginForm.get('userID')?.touched">
+        Por favor, insira um email válido.
+      </div>
+      <ion-item class="ion-item">
+        <ion-icon class="ion-padding-end" color="primary" name="key" />
+        <ion-input formControlName="accessKey" shape="round" class="custom" color="light" placeholder="Senha"
+          type="password" />
+      </ion-item>
+      <div *ngIf="loginForm.get('accessKey')?.hasError('required') && loginForm.get('accessKey')?.touched">
+        Senha é obrigatório.
+      </div>
+      <ion-item lines="none">
+        <ion-button size="medium" class="btn-login" type="submit" color="primary">LOGIN</ion-button>
+      </ion-item>
+    </ion-list>
+  </form>
+</ion-content>

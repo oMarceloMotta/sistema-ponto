@@ -1,0 +1,7 @@
+{
+  "name": "sistema-pont-thera",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
