@@ -1,6 +1,9 @@
-Aplicativo de Ponto Exercicio de Thera.
+Aplicativo de Ponto.
 
+Node v21
 Run
 Npm i
 ionic serve -o
 
+![Login da Minha Aplicação](imagens-app/login.png)
+![Home da Minha Aplicação](imagens-app/home.png)
