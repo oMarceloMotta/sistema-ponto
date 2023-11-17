@@ -35,9 +35,11 @@ export class HomePage implements OnInit {
       const userStorage: string | null = localStorage?.getItem('login');
       this.user = userStorage ? JSON.parse(userStorage) : '';
       this.firstName = this.user.name.split(' ')[0];
+      this.getTimeSheet();
+      loading.dismiss();
     }
-    this.getTimeSheet();
-    loading.dismiss();
+
+
   }
 
   getTimeSheet() {
